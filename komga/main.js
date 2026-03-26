@@ -103,19 +103,22 @@ setTimeout(() => {
 
         html += `</div></div></div>`;
         
-        const hookContainer = document.getElementById('komgaLatestBookContainer');
-        if (hookContainer) {
-            hookContainer.innerHTML = html;
-            return;
+        let hookContainer = document.getElementById('komgaLatestBookContainer');
+        if (!hookContainer) {
+            hookContainer = document.createElement('div');
+            hookContainer.id = 'komgaLatestBookContainer';
+            hookContainer.className = 'homepage-item';
+            
+            // Insert after active sessions or append to homepage items
+            const activeSessions = document.querySelector('.active-sessions-item');
+            if (activeSessions) {
+                activeSessions.after(hookContainer);
+            } else {
+                container.appendChild(hookContainer);
+            }
         }
-
-        const temp = document.createElement('div');
-        temp.innerHTML = html;
-        if (container.children.length >= 4) {
-            container.insertBefore(temp.firstElementChild, container.children[4]);
-        } else {
-            container.appendChild(temp.firstElementChild);
-        }
+        
+        hookContainer.innerHTML = html;
     }
 
     loadLatestBooks();

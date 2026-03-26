@@ -7,7 +7,7 @@ $GLOBALS['plugins']['Komga'] = array(
     'license' => 'personal',
     'idPrefix' => 'KOMGA',
     'configPrefix' => 'KOMGA',
-    'version' => '1.0.8',
+    'version' => '1.0.9',
     'image' => 'https://komga.org/fr/img/logo.svg',
     'settings' => true,
     'bind' => true,
@@ -20,18 +20,6 @@ class KomgaPlugin extends Organizr
     public function __construct()
     {
         parent::__construct();
-        add_hook('homepage', [$this, '_pluginGetHomepage']);
-    }
-
-    public function _pluginGetHomepage()
-    {
-        // Must be enabled in Homepage Items
-        if (empty($this->config['KOMGA-enabled'])) {
-            return;
-        }
-
-        // Output the injection container
-        echo '<div id="komgaLatestBookContainer" class="homepage-item" data-id="KOMGA"></div>';
     }
 
     public function _pluginGetSettings()
