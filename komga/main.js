@@ -103,6 +103,12 @@ setTimeout(() => {
 
         html += `</div></div></div>`;
         
+        const hookContainer = document.getElementById('komgaLatestBookContainer');
+        if (hookContainer) {
+            hookContainer.innerHTML = html;
+            return;
+        }
+
         const temp = document.createElement('div');
         temp.innerHTML = html;
         if (container.children.length >= 4) {
