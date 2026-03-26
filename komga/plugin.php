@@ -7,7 +7,7 @@ $GLOBALS['plugins']['Komga'] = array(
     'license' => 'personal',
     'idPrefix' => 'KOMGA',
     'configPrefix' => 'KOMGA',
-    'version' => '1.0.5',
+    'version' => '1.0.6',
     'image' => 'https://komga.org/fr/img/logo.svg',
     'settings' => true,
     'bind' => true,
@@ -90,7 +90,9 @@ class KomgaPlugin extends Organizr
                     'value' => (string)($this->config['KOMGA-title'] ?? 'Livres ajoutés récemment')
                 ),
                     array(
-                    'type' => 'select',
+                    'type' => 'select2',
+                    'class' => 'form-control',
+                    'id' => 'komga-select-library',
                     'name' => 'KOMGA-libraries',
                     'label' => 'Specific Library',
                     'value' => (string)($this->config['KOMGA-libraries'] ?? 'all'),
