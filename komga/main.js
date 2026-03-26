@@ -76,7 +76,7 @@ setTimeout(() => {
         <div class="row" style="margin-bottom: 30px; margin-top: 20px;">
             <div class="col-lg-12">
                 <div style="display: flex; align-items: center; margin-bottom: 15px; padding-left: 5px;">
-                    <img src="api/plugins/komga/logo.svg" style="width: 22px; height: 22px; margin-right: 10px;" onerror="this.style.display='none'">
+                    <img src="https://komga.org/fr/img/logo.svg" style="width: 22px; height: 22px; margin-right: 10px;" onerror="this.style.display='none'">
                     <span style="text-transform: uppercase; font-weight: bold; font-size: 13px; letter-spacing: 1px; color: #eee;">${titleDisplay}</span>
                 </div>
                 <div class="komga-container" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding: 5px;">`;
