@@ -1,0 +1,13 @@
+{
+    "Komga": {
+      "repo": "https://github.com/JamesDAdams/organizrv2-plugin-komga",
+      "author": "Organizr User",
+      "category": "Entertainment",
+      "description": "Integre les derniers livres Komga sur la page d'accueil",
+      "version": "1.0.0",
+      "minimum_organizr_version": "2.1.0",
+      "github_folder": "komga",
+      "project_folder": "komga",
+      "license": "personal"
+    }
+}
