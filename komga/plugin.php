@@ -24,7 +24,9 @@ class KomgaPlugin extends Organizr
 
     public function _pluginGetSettings()
     {
-        $libraries = ['all' => 'All Libraries'];
+        $libraries = [
+            ['name' => 'All Libraries', 'value' => 'all']
+        ];
 
         $url = $this->config['KOMGA-url'] ?? '';
         $apiKey = $this->config['KOMGA-apikey'] ?? '';
@@ -49,7 +51,10 @@ class KomgaPlugin extends Organizr
                     $items = isset($data['content']) ? $data['content'] : $data;
                     foreach ($items as $lib) {
                         if (isset($lib['id']) && isset($lib['name'])) {
-                            $libraries[$lib['id']] = $lib['name'];
+                            $libraries[] = [
+                                'name' => $lib['name'],
+                                'value' => $lib['id']
+                            ];
                         }
                     }
                 }
