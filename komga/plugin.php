@@ -24,7 +24,9 @@ class KomgaPlugin extends Organizr
 
     public function _pluginGetSettings()
     {
-        $libraries = ['all' => 'Toutes les bibliothèques'];
+        $libraries = [
+            ['name' => 'All Libraries', 'value' => 'all']
+        ];
 
         $url = $this->config['KOMGA-url'] ?? '';
         $apiKey = $this->config['KOMGA-apikey'] ?? '';
@@ -49,7 +51,10 @@ class KomgaPlugin extends Organizr
                     $items = isset($data['content']) ? $data['content'] : $data;
                     foreach ($items as $lib) {
                         if (isset($lib['id']) && isset($lib['name'])) {
-                            $libraries[$lib['id']] = $lib['name'];
+                            $libraries[] = [
+                                'name' => $lib['name'],
+                                'value' => $lib['id']
+                            ];
                         }
                     }
                 }
@@ -57,37 +62,37 @@ class KomgaPlugin extends Organizr
         }
 
         return array(
-            'Paramètres Komga' => array(
+            'Komga Settings' => array(
                     array(
-                    'type' => 'auth',
+                    'type' => 'select',
                     'name' => 'KOMGA-minAuth',
-                    'label' => 'Authentification minimale pour voir le composant',
+                    'label' => 'Minimum authentication to view component',
                     'value' => $this->config['KOMGA-minAuth'] ?? 1,
                     'options' => $this->groupSelect()
                 ),
                     array(
                     'type' => 'input',
                     'name' => 'KOMGA-url',
-                    'label' => 'URL de Komga',
+                    'label' => 'Komga URL',
                     'placeholder' => 'ex: https://komga.domain.com',
                     'value' => $this->config['KOMGA-url'] ?? ''
                 ),
                     array(
                     'type' => 'password-alt',
                     'name' => 'KOMGA-apikey',
-                    'label' => 'Clé d\'API Komga',
+                    'label' => 'Komga API Key',
                     'value' => $this->config['KOMGA-apikey'] ?? ''
                 ),
                     array(
                     'type' => 'input',
                     'name' => 'KOMGA-title',
-                    'label' => 'Titre sur la page d\'accueil',
+                    'label' => 'Homepage component title',
                     'value' => $this->config['KOMGA-title'] ?? 'Livres ajoutés récemment'
                 ),
                     array(
                     'type' => 'select',
                     'name' => 'KOMGA-libraries',
-                    'label' => 'Bibliothèque spécifique',
+                    'label' => 'Specific Library',
                     'value' => $this->config['KOMGA-libraries'] ?? 'all',
                     'options' => $libraries
                 )
