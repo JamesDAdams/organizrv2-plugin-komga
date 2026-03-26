@@ -83,3 +83,16 @@ $app->get('/plugins/komga/image', function ($request, $response, $args) {
 
     return $response->withStatus(404);
 });
+
+$app->get('/plugins/komga/settings', function ($request, $response, $args) {
+    $komgaPlugin = new KomgaPlugin();
+    if ($komgaPlugin->checkRoute($request)) {
+        if ($komgaPlugin->qualifyRequest(1, true)) {
+            $GLOBALS['api']['response']['data'] = $komgaPlugin->_pluginGetSettings();
+        }
+    }
+    $response->getBody()->write(jsonE($GLOBALS['api']));
+    return $response
+        ->withHeader('Content-Type', 'application/json;charset=UTF-8')
+        ->withStatus($GLOBALS['responseCode']);
+});

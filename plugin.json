@@ -4,6 +4,7 @@
       "author": "Organizr User",
       "category": "Entertainment",
       "description": "Integre les derniers livres Komga sur la page d'accueil",
+      "icon": "api/plugins/komga/logo.svg",
       "version": "1.0.0",
       "minimum_organizr_version": "2.1.0",
       "github_folder": "komga",
